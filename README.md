@@ -11,3 +11,8 @@ $$
 $$
 \frac{\partial P}{\partial s} = \frac{\rho|V|^2}{r^\perp}-(\nabla\cdot R)\cdot \hat{s}
 $$
+
+$$
+
+
+$$
