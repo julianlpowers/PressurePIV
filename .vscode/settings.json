@@ -1,3 +1,31 @@
 {
-    "latex-workshop.latex.autoBuild.run": "onFileChange"
+    // "latex-workshop.latex.autoBuild.run": "onFileChange",
+    // "latex-workshop.view.outline.sync.viewer": true,
+    
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.latex.outDir": "./build",
+    "latex-workshop.synctex.path": "./build",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=build",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": ["latexmk"]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.external.synctex.command": "synctex edit -o %LINE%:%COLUMN%:%FILE% -x \"code --goto %OUTPUTFILE%:%LINE%:%COLUMN%\""
+    
 }
