@@ -261,8 +261,8 @@ class Mesh2D:
         plt.axis('equal')
             
             
-    def color(self,f,on_volumes=False,**kwargs):
-        triangulation = matplotlib.tri.Triangulation(self.nodes[:,0], self.nodes[:,1], self.cells) 
+    def color(self,f,on_volumes=False,scale_axes=1.0,**kwargs):
+        triangulation = matplotlib.tri.Triangulation(self.nodes[:,0]*scale_axes, self.nodes[:,1]*scale_axes, self.cells) 
         if callable(f):
             x,y = tuple(self.nodes.T)
             z = f(x,y)

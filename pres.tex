@@ -2,9 +2,10 @@
 \usetheme{default} 
 
 \title{Streamline Curvature Wall Model for Pressure from PIV}
-\author{Julián Powers\texorpdfstring{$^1$}{1}, Adrián Lozano-Durán\texorpdfstring{$^2$}{2}}
+\author{Julian Powers\texorpdfstring{$^1$}{1}, Adrián Lozano-Durán\texorpdfstring{$^2$}{2}}
 
 \institute{
+    \tiny
     \texorpdfstring{$^1$}{1}
     Masters Student\\
     Massachusetts Institute of Technology \\[0.5cm]
@@ -32,27 +33,27 @@
 % Motivation Slide
 \section{Motivation: Why Pressure from PIV?}
 \begin{frame}{Motivation: Why Pressure from PIV?}
-    \begin{columns}
-        \column{0.5\textwidth}
-        \textbf{Pressure Taps (traditional method)}
-        \begin{itemize}
-            \item Measurements dependent on leakage, hole diameter, flushness
-            \item Difficult to install
-            \item Length of tubing limits sampling rate!
-        \end{itemize}
-
-        \column{0.5\textwidth}
-        \textbf{Pressure from PIV}
-        \begin{itemize}
-            \item Non-invasive (no installation on model)
-            \item High time resolution possible
-            \item High spatial resolution possible
-        \end{itemize}
-    \end{columns}
-    \begin{center}
-        \textbf{References:}\\
-        \url{https://user.engineering.uiowa.edu/~fluids/posting/home/efd/efd_lab3/lab3-exercise_note.pdf}
-    \end{center}
+    \vspace{0.5cm}
+    \begin{table}
+        \centering
+        \begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}}
+            \textbf{Pressure Taps} & \textbf{Pressure from PIV} \\
+            \begin{itemize}
+                \item Measurements dependent on leakage, hole diameter, flushness
+                \item Difficult to install
+                \item Length of tubing limits sampling rate!
+            \end{itemize} & 
+            \begin{itemize}
+                \item Completely non-invasive
+                \item High time resolution possible
+                \item High spatial resolution possible
+            \end{itemize}\\[-1cm]
+            \centering
+            \includegraphics[width=0.5\textwidth]{figs/for_pres/taps.png} & 
+            \centering
+            \includegraphics[width=0.5\textwidth]{figs/for_pres/cylinder_full.png}
+        \end{tabular}
+    \end{table}
 \end{frame}
 
 % Literature Review Slide
@@ -61,7 +62,7 @@
     \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|}
         \hline
-            Case         & Max Cp Error & Extrapolation Approach & Source             \\
+            Case         & Max Cp Error & Extrapolation Approach & Source                 \\
             \hline
             NACA 0012    & 0.5          & parabola fit           & Tagliabue et al., 2017 \\
             Sphere       & 0.15         & nearest neighbor       & Jux et al., 2020       \\

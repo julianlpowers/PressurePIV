@@ -14,7 +14,7 @@ from extrapolate import Poly2DExtrapolator
 #                             PARAMETERS                             #
 ######################################################################
 if True:
-    METHOD = 'streamlines_2mm'
+    METHOD = 'extrap'
 
     OFFSET_CALC_STREAMLINES = 2e-3
     OFFSET_AVOID_BAD_DATA = 1e-3 
@@ -55,7 +55,7 @@ if True:
 
     if 'extrap' in METHOD:
         mask = ~contains_points(compute_offset(profile,OFFSET_EXTRAPOLATION),np.array([x,y]).T)
-        mask *= contains_points(compute_offset(profile,20e-3),np.array([x,y]).T)
+        mask *= contains_points(compute_offset(profile,40e-3),np.array([x,y]).T)
     else:
         mask = ~contains_points(profile,np.array([x,y]).T)
 
@@ -72,7 +72,7 @@ if True:
     plt.plot(*tuple(profile.T),'k',linewidth=1)
     plt.colorbar();plt.ylim([0,None]); plt.xlabel('x [m]'); plt.ylabel('y [m]'); plt.title('|V| [m/s]')
 
-    plt.show()
+    # plt.show()
 
     
 
@@ -213,7 +213,6 @@ if True:
     inds = list(range(bl,N)) + list(range(0,br)) if bl>br else range(bl,br)
 
 
-
     q_inf = (1.53-0.65)*10
     rho_inf = 1.225
 
@@ -247,4 +246,14 @@ if True:
 
     plt.xlabel('theta [deg]'); plt.ylabel('Cp'); #plt.legend(['PIV + 0','PIV + wm','taps'])
     plt.title(fr'Cylinder, $Re_D=16500$, offset={OFFSET_CALC_STREAMLINES*1e3}mm')
+
+    if 'extrap' in METHOD:
+        plt.figure(3)
+        plt.plot(*tuple(profile.T/50.8e-3),'k',linewidth=1)
+        Cp = (P*rho_inf/q_inf)-Cp_PIV[-1]+Cp_taps[-1]
+        mesh.color(Cp,on_volumes=True,scale_axes=1/50.8e-3,cmap='coolwarm')
+        plt.colorbar()
+        plt.title('Cp');plt.xlabel('x/D'); plt.ylabel('y/D')
+
+
     plt.show()
