@@ -17,7 +17,7 @@ if True:
     NOISE = 0.00
     RESOLUTION = '400x400'
 
-    METHOD = 'streamlines'
+    METHOD = 'raw'
 
     OFFSET_CALC_STREAMLINES = 3e-2
     OFFSET_AVOID_BAD_DATA = 1e-2 
@@ -84,9 +84,9 @@ if print('Reading data...') or True:
     mesh.color(Vmag)
     plt.colorbar()
     plt.title(r'$|V|/V_\infty$')
-    # skip=5
-    # plt.quiver(x[::skip],y[::skip],(u/Vmag)[::skip],(v/Vmag)[::skip])
-    # plt.show() 
+    skip=1
+    plt.quiver(x[::skip],y[::skip],(u/Vmag)[::skip],(v/Vmag)[::skip])
+    plt.show() 
 
 
 

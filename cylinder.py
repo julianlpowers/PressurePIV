@@ -14,7 +14,7 @@ from extrapolate import Poly2DExtrapolator
 #                             PARAMETERS                             #
 ######################################################################
 if True:
-    METHOD = 'extrap'
+    METHOD = 'raw'
 
     OFFSET_CALC_STREAMLINES = 2e-3
     OFFSET_AVOID_BAD_DATA = 1e-3 
@@ -68,11 +68,11 @@ if True:
 
     plt.figure(1)
     Vmag = (u**2 + v**2)**0.5
-    mesh.color(Vmag)
+    mesh.color(np.clip(DV/Vmag,0,0.04))
     plt.plot(*tuple(profile.T),'k',linewidth=1)
     plt.colorbar();plt.ylim([0,None]); plt.xlabel('x [m]'); plt.ylabel('y [m]'); plt.title('|V| [m/s]')
 
-    # plt.show()
+    plt.show()
 
     
 

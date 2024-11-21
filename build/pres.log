@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.23)  20 NOV 2024 00:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.23)  21 NOV 2024 02:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -535,9 +535,15 @@ Package: amsthm 2020/05/29 v2.20.6
 ) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasethemes.sty)) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerthemedefault.sty (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerfontthemedefault.sty) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolorthemedefault.sty) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerinnerthemedefault.sty
 \beamer@dima=\dimen292
 \beamer@dimb=\dimen293
-) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerouterthemedefault.sty))) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerouterthemedefault.sty))) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip65
+\multirow@cntb=\count336
+\multirow@dima=\skip66
+\bigstrutjot=\dimen294
+) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count336
+\l__color_backend_stack_int=\count337
 \l__pdf_internal_box=\box76
 ) (c:\Users\Julian Powers\Desktop\PressurePIV\build\pres.aux)
 \openout1 = `pres.aux'.
@@ -597,16 +603,16 @@ LaTeX Font Info:    ... okay on input line 21.
 
 (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count337
-\scratchdimen=\dimen294
+\scratchcounter=\count338
+\scratchdimen=\dimen295
 \scratchbox=\box77
-\nofMPsegments=\count338
-\nofMParguments=\count339
+\nofMPsegments=\count339
+\nofMParguments=\count340
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count340
-\MPscratchDim=\dimen295
-\MPnumerator=\count341
-\makeMPintoPDFobject=\count342
+\MPscratchCnt=\count341
+\MPscratchDim=\dimen296
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
 \everyMPtoPDFconversion=\toks47
 ) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -681,83 +687,106 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) (c:\Users\Julian Powers\Desktop\PressurePIV\build\pres.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
  (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
  (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 26.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 27.
  (C:\Users\Julian Powers\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [1
 
 {C:/Users/Julian Powers/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<figs/for_pres/taps.png, id=67, 713.66624pt x 464.73625pt>
+<figs/for_pres/taps.png, id=43, 713.66624pt x 464.73625pt>
 File: figs/for_pres/taps.png Graphic file (type png)
 <use figs/for_pres/taps.png>
-Package pdftex.def Info: figs/for_pres/taps.png  used on input line 57.
+Package pdftex.def Info: figs/for_pres/taps.png  used on input line 52.
 (pdftex.def)             Requested size: 153.64493pt x 100.05107pt.
 
-Overfull \hbox (15.36543pt too wide) in paragraph at lines 57--57
+Overfull \hbox (15.36543pt too wide) in paragraph at lines 52--52
  [][]| 
  []
 
-<figs/for_pres/cylinder_full.png, id=68, 642.4pt x 481.8pt>
+<figs/for_pres/cylinder_full.png, id=44, 642.4pt x 481.8pt>
 File: figs/for_pres/cylinder_full.png Graphic file (type png)
 <use figs/for_pres/cylinder_full.png>
-Package pdftex.def Info: figs/for_pres/cylinder_full.png  used on input line 57.
+Package pdftex.def Info: figs/for_pres/cylinder_full.png  used on input line 52.
 (pdftex.def)             Requested size: 153.64493pt x 115.23001pt.
 
-Overfull \hbox (15.36543pt too wide) in paragraph at lines 57--57
+Overfull \hbox (15.36543pt too wide) in paragraph at lines 52--52
  [][]| 
  []
 
 [2
 
  <./figs/for_pres/taps.png (PNG copy)> <./figs/for_pres/cylinder_full.png (PNG copy)>]
-<figs/for_pres/0012_tagliabue.png, id=96, 676.5275pt x 498.86375pt>
+<figs/for_pres/0012_tagliabue.png, id=72, 676.5275pt x 498.86375pt>
 File: figs/for_pres/0012_tagliabue.png Graphic file (type png)
 <use figs/for_pres/0012_tagliabue.png>
-Package pdftex.def Info: figs/for_pres/0012_tagliabue.png  used on input line 83.
-(pdftex.def)             Requested size: 46.0916pt x 33.98013pt.
-<figs/for_pres/sphere.png, id=97, 546.04pt x 468.75125pt>
+Package pdftex.def Info: figs/for_pres/0012_tagliabue.png  used on input line 77.
+(pdftex.def)             Requested size: 52.23871pt x 38.5169pt.
+<figs/for_pres/sphere.png, id=73, 546.04pt x 468.75125pt>
 File: figs/for_pres/sphere.png Graphic file (type png)
 <use figs/for_pres/sphere.png>
-Package pdftex.def Info: figs/for_pres/sphere.png  used on input line 83.
+Package pdftex.def Info: figs/for_pres/sphere.png  used on input line 77.
 (pdftex.def)             Requested size: 46.0916pt x 39.56079pt.
-<figs/for_pres/cyclist.png, id=98, 582.67688pt x 749.80125pt>
+<figs/for_pres/cyclist.png, id=74, 582.67688pt x 749.80125pt>
 File: figs/for_pres/cyclist.png Graphic file (type png)
 <use figs/for_pres/cyclist.png>
-Package pdftex.def Info: figs/for_pres/cyclist.png  used on input line 83.
+Package pdftex.def Info: figs/for_pres/cyclist.png  used on input line 77.
 (pdftex.def)             Requested size: 39.94917pt x 51.40454pt.
-<figs/for_pres/bullet_step.png, id=100, 337.26pt x 156.585pt>
+<figs/for_pres/bullet_step.png, id=76, 337.26pt x 156.585pt>
 File: figs/for_pres/bullet_step.png Graphic file (type png)
 <use figs/for_pres/bullet_step.png>
-Package pdftex.def Info: figs/for_pres/bullet_step.png  used on input line 83.
-(pdftex.def)             Requested size: 55.30992pt x 25.6777pt.
-<figs/for_pres/0012_ragni.png, id=101, 338.76563pt x 195.73125pt>
+Package pdftex.def Info: figs/for_pres/bullet_step.png  used on input line 77.
+(pdftex.def)             Requested size: 61.45703pt x 28.53291pt.
+<figs/for_pres/0012_ragni.png, id=77, 338.76563pt x 195.73125pt>
 File: figs/for_pres/0012_ragni.png Graphic file (type png)
 <use figs/for_pres/0012_ragni.png>
-Package pdftex.def Info: figs/for_pres/0012_ragni.png  used on input line 83.
-(pdftex.def)             Requested size: 46.0916pt x 26.62865pt.
- [3
+Package pdftex.def Info: figs/for_pres/0012_ragni.png  used on input line 77.
+(pdftex.def)             Requested size: 49.1675pt x 28.40569pt.
 
- <./figs/for_pres/0012_tagliabue.png (PNG copy)> <./figs/for_pres/sphere.png> <./figs/for_pres/cyclist.png> <./figs/for_pres/bullet_step.png> <./figs/for_pres/0012_ragni.png>] [4
+Overfull \hbox (1.61421pt too wide) in paragraph at lines 77--77
+[]  
+ []
 
-] [5
+[3
 
-] [6
+ <./figs/for_pres/0012_tagliabue.png (PNG copy)> <./figs/for_pres/sphere.png> <./figs/for_pres/cyclist.png> <./figs/for_pres/bullet_step.png> <./figs/for_pres/0012_ragni.png>]
+Overfull \hbox (11.2655pt too wide) in paragraph at lines 91--91
+[][]  
+ []
 
-] [7
+<figs/for_pres/standard_workflow.png, id=108, 1870.99pt x 436.63126pt>
+File: figs/for_pres/standard_workflow.png Graphic file (type png)
+<use figs/for_pres/standard_workflow.png>
+Package pdftex.def Info: figs/for_pres/standard_workflow.png  used on input line 91.
+(pdftex.def)             Requested size: 307.28987pt x 71.70792pt.
+[4
+
+ <./figs/for_pres/standard_workflow.png>] [5
+
+]
+<figs/for_pres/streamlines.png, id=163, 1540.75626pt x 787.94376pt>
+File: figs/for_pres/streamlines.png Graphic file (type png)
+<use figs/for_pres/streamlines.png>
+Package pdftex.def Info: figs/for_pres/streamlines.png  used on input line 100.
+(pdftex.def)             Requested size: 307.28987pt x 157.1411pt.
+ [6
+
+ <./figs/for_pres/streamlines.png>] [7
 
 ] [8
 
 ] [9
 
 ] [10
+
+] [11
 
 ]
 \tf@nav=\write6
@@ -775,20 +804,20 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `pres.out' has not changed.
-(rerunfilecheck)             Checksum: 891B23DD786D0B5E6958B090C9EFD841;939.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21478 strings out of 474486
- 421071 string characters out of 5739943
+ 21552 strings out of 474486
+ 422906 string characters out of 5739943
  1938542 words of memory out of 5000000
- 43290 multiletter control sequences out of 15000+600000
- 568406 words of font info for 73 fonts, out of 8000000 for 9000
+ 43362 multiletter control sequences out of 15000+600000
+ 572510 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,123p,442b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "c:\Users\Julian Powers\Desktop\PressurePIV\build\pres.pdf" (10 pages, 2132156 bytes).
+ 128i,14n,123p,445b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Julian Powers/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on "c:\Users\Julian Powers\Desktop\PressurePIV\build\pres.pdf" (11 pages, 2252283 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 358 PDF objects out of 1000 (max. 8388607)
+ 23 named destinations out of 1000 (max. 500000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 

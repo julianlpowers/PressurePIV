@@ -1,9 +1,9 @@
 \documentclass{beamer}
+\usepackage{multirow}
+\DeclareMathOperator*{\bb}{\usebeamertemplate***{itemize item}}
 \usetheme{default} 
-
 \title{Streamline Curvature Wall Model for Pressure from PIV}
 \author{Julian Powers\texorpdfstring{$^1$}{1}, Adrián Lozano-Durán\texorpdfstring{$^2$}{2}}
-
 \institute{
     \tiny
     \texorpdfstring{$^1$}{1}
@@ -14,24 +14,19 @@
     Massachusetts Institute of Technology\\ 
     California Institute of Technology\\[0.5cm]
     }
-
-
 \date{APS DFD, November 2024}
 
+
+
 \begin{document}
+
 
 % Title Slide
 \begin{frame}
     \titlepage
 \end{frame}
 
-% % Outline Slide
-% \begin{frame}{Outline}
-%     \tableofcontents
-% \end{frame}
 
-% Motivation Slide
-\section{Motivation: Why Pressure from PIV?}
 \begin{frame}{Motivation: Why Pressure from PIV?}
     \vspace{0.5cm}
     \begin{table}
@@ -41,7 +36,7 @@
             \begin{itemize}
                 \item Measurements dependent on leakage, hole diameter, flushness
                 \item Difficult to install
-                \item Length of tubing limits sampling rate!
+                \item Length of tubing limits sampling rate
             \end{itemize} & 
             \begin{itemize}
                 \item Completely non-invasive
@@ -56,9 +51,8 @@
     \end{table}
 \end{frame}
 
-% Literature Review Slide
-\section{Literature Review}
-\begin{frame}{Motivation: Literature Review}
+
+\begin{frame}{Previous Works on Extracting Surface Pressure from PIV}
     \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|}
         \hline
@@ -74,37 +68,39 @@
     }
     \footnotesize{*based on uncertainty analysis (no pressure tap reference)}
     \begin{tabular}{ccccc}
-        \includegraphics[width = 0.15\textwidth]{figs/for_pres/0012_tagliabue.png} &
+        \includegraphics[width = 0.17\textwidth]{figs/for_pres/0012_tagliabue.png} &
         \includegraphics[width = 0.15\textwidth]{figs/for_pres/sphere.png} &
         \includegraphics[width = 0.13\textwidth]{figs/for_pres/cyclist.png} &
-        \includegraphics[width = 0.18\textwidth]{figs/for_pres/bullet_step.png} &
-        \includegraphics[width = 0.15\textwidth]{figs/for_pres/0012_ragni.png} 
+        \includegraphics[width = 0.20\textwidth]{figs/for_pres/bullet_step.png} &
+        \includegraphics[width = 0.16\textwidth]{figs/for_pres/0012_ragni.png} 
     \end{tabular}
 \end{frame}
 
-% Issues Slide
-\section{Issues with Extracting Surface Pressure}
-\begin{frame}{Motivation: Issues with Extracting Surface Pressure}
-    \begin{itemize}
-        \item Reflections and low particle density
-        \item Strong gradients due to curvature and boundary layer
-    \end{itemize}
-    \textbf{Goals:}
-    \begin{itemize}
-        \item Avoid extrapolation
-        \item No numerical derivatives close to the wall
-    \end{itemize}
+
+\begin{frame}{Common Challenges}
+    \begin{tabular}{ll}
+        $\bb$ Reflections           & \multirow{3}{*}{\Bigg\} degrade near wall velocity data}  \\[2pt]
+        $\bb$ Low Particle Density  & \\[2pt]                        
+        $\bb$ Turbulence            & \\[2pt]
+        $\bb$ Wall Curvature        & \multirow{2}{*}{\Big\} degrade near wall gradient calculations}  \\[2pt]
+        $\bb$ Boundary Layers       &                    
+    \end{tabular}
+    \\[1cm]
+    Typical workflow:
+    \includegraphics[width=\textwidth]{figs/for_pres/standard_workflow.png}
 \end{frame}
 
-% Method Slide
-\section{Method}
-\begin{frame}{Method: Streamline Coordinates}
-    \begin{center}
-        \textbf{[Insert Streamline Diagram]}
-    \end{center}
+
+\begin{frame}{Idea: Use geometry to calculate $\nabla P$}
 \end{frame}
 
-\begin{frame}{Method: Summary}
+
+\begin{frame}{Pressure Gradient in Streamline Coordinates}
+    \includegraphics[width=\textwidth]{figs/for_pres/streamlines.png}
+\end{frame}
+
+
+\begin{frame}{Summary of the New Method}
     \begin{enumerate}
         \item Compute Streamlines
         \item Fit Circles
@@ -113,9 +109,8 @@
     \end{enumerate}
 \end{frame}
 
-% Results Slides
-\section{Results}
-\begin{frame}{Results: LES Airfoil}
+
+\begin{frame}{LES Airfoil Validation}
     \begin{itemize}
         \item Data from Asada and Kawai, 2018
         \item Grid coarsened from LES
@@ -123,16 +118,15 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Results: Rough Cylinder}
-    \textbf{[Details and visualization]}
+
+\begin{frame}{Experimental Setup}
 \end{frame}
 
-\begin{frame}{Results: NACA 0018 (?)}
-    \textbf{[Details and visualization]}
+
+\begin{frame}{Rough Cylinder Expirimental Results}
 \end{frame}
 
-% Conclusions Slide
-\section{Conclusions and Next Steps}
+
 \begin{frame}{Conclusions and Next Steps}
     \begin{itemize}
         \item Robust to noise
