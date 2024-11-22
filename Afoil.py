@@ -17,7 +17,7 @@ if True:
     NOISE = 0.02
     RESOLUTION = '400x400'
 
-    METHOD = 'streamlines'
+    METHOD = 'extrap'
 
     OFFSET_CALC_STREAMLINES = 3e-2
     OFFSET_AVOID_BAD_DATA = 1.0e-2 
@@ -26,7 +26,7 @@ if True:
     VELOCITY_NORMALIZATION_EXPONENT = 1
     OMEGA_THRESHOLD = 100
 
-    OFFSET_EXTRAPOLATION = 1e-2
+    OFFSET_EXTRAPOLATION = 2e-2
 
     SAVE_TO_FILE = False
     SAVE_FILENAME = fr'figs\AFOIL_{METHOD}.npz'
@@ -80,13 +80,15 @@ if print('Reading data...') or True:
 
     plt.figure(1) 
     Vmag = np.sqrt(u**2+v**2) 
-    plt.plot(*tuple(profile.T),'k')
-    mesh.color(Vmag)
+    plt.plot(*tuple(profile.T), 'k', linewidth=1)
+    mesh.color(Vmag,cmap='coolwarm')
     plt.colorbar()
     plt.title(r'$|V|/V_\infty$')
+    plt.xlabel('x/c')
+    plt.ylabel('y/c')
     # skip=1
     # plt.quiver(x[::skip],y[::skip],(1e3*u/Vmag)[::skip],(1e3*v/Vmag)[::skip])
-    #plt.show() 
+    plt.show() 
 
 
 

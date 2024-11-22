@@ -68,9 +68,9 @@ if True:
 
     plt.figure(1)
     Vmag = (u**2 + v**2)**0.5
-    mesh.color(np.clip(DV/Vmag,0,0.04))
-    plt.plot(*tuple(profile.T),'k',linewidth=1)
-    plt.colorbar();plt.ylim([0,None]); plt.xlabel('x [m]'); plt.ylabel('y [m]'); plt.title('|V| [m/s]')
+    mesh.color(Vmag/3.9,cmap='coolwarm',scale_axes=1/50.8e-3)
+    plt.plot(*tuple(profile.T/50.8e-3),'k',linewidth=1)
+    plt.colorbar();plt.ylim([0,None]); plt.xlabel('x/D'); plt.ylabel('y/D'); plt.title('$|V|/V_\infty$')
 
     plt.show()
 
