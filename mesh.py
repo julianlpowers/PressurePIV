@@ -202,6 +202,12 @@ class Mesh2D:
                 p_dict[p_name] = np.mean(self.scalars[p_name][bound],axis=-1)
             b_scalars.append(p_dict)
         return b_scalars
+    
+    def volume_scalars(self):
+        v_scalars = {}
+        for p_name in self.scalars:
+            v_scalars[p_name] = np.mean(self.scalars[p_name][self.cells],axis=-1)
+        return v_scalars
                 
 
     def evaluate_at_nodes(self, f):
@@ -295,7 +301,15 @@ class Mesh2D:
             else:
                 mask = mask * loop.contains_points(points)      
         return mask
-        
+    
+    def refine(self,region):
+        mask = contains_points(region,self.cell_centers())
+        new_nodes = np.concatenate([self.nodes, self.cell_centers()[mask]])
+        scalars = self.scalars
+        for pname in scalars:
+            scalars[pname] = np.concatenate([scalars[pname],self.volume_scalars()[pname][mask]])
+        new_mesh = Mesh2D(new_nodes,scalars=scalars, alpha=None)
+        return new_mesh
 
 
 def PIVmesh(mesh,Nx=100,Ny=100,pad=1e-6,alpha=np.inf):
@@ -332,7 +346,7 @@ def shrink(mesh, alpha=None):
 def expand(mesh, boundaries):
     dL = np.min(np.linalg.norm(mesh.nodes[0][None,:]-mesh.nodes[1:],axis=-1),axis=-1)
 
-    resampled_boundaries = [resample_line(bound, int(calculate_arc_lengths(bound)[-1]/dL)) for bound in boundaries]
+    resampled_boundaries = [resample_line(bound, 2*int(calculate_arc_lengths(bound)[-1]/dL)) for bound in boundaries]
     new_boundary_nodes = np.concatenate(resampled_boundaries)
 
     min_distance = np.min(np.linalg.norm(mesh.nodes[None,:,:]-new_boundary_nodes[:,None,:],axis=-1))
@@ -342,7 +356,8 @@ def expand(mesh, boundaries):
     for d in np.linspace(0,min_distance,int(min_distance/dL)+1,endpoint=False):
         new_nodes = np.concatenate([new_nodes]+[compute_offset(bound,d) for bound in resampled_boundaries])
 
-    return Mesh2D(new_nodes,avoid_regions=boundaries)
+    return Mesh2D(new_nodes,avoid_regions=boundaries,alpha=None)
+
         
     
 

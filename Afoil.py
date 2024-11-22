@@ -2,7 +2,7 @@ import numpy as np
 import scipy as sp
 import pandas as pd
 import matplotlib.pyplot as plt
-from mesh import Mesh2D
+from mesh import Mesh2D,expand
 from GFI import GFI
 from streamlines import fit_circle, central_ivp
 from tqdm import tqdm
@@ -14,13 +14,13 @@ from extrapolate import Poly2DExtrapolator
 #                             PARAMETERS                             #
 ######################################################################
 if True:
-    NOISE = 0.00
+    NOISE = 0.02
     RESOLUTION = '400x400'
 
-    METHOD = 'raw'
+    METHOD = 'streamlines'
 
     OFFSET_CALC_STREAMLINES = 3e-2
-    OFFSET_AVOID_BAD_DATA = 1e-2 
+    OFFSET_AVOID_BAD_DATA = 1.0e-2 
     CIRCLE_FIT_POINTS = 20
     STREAMLINE_ODE_TIME_SPAN = 0.05
     VELOCITY_NORMALIZATION_EXPONENT = 1
@@ -75,8 +75,8 @@ if print('Reading data...') or True:
                   alpha = None,
                   scalars = {'x':x, 'y':y, 'rho':rho, 'u':u, 'v':v, 'p':p, 'uu':uu, 'vv':vv, 'ww':ww, 'uv':uv, 'Cp':Cp},
                  )
-
-   
+    # mesh = mesh.refine(compute_offset(profile,0.03))
+    # x,y,rho,u,v,p,uu,vv,ww,uv,Cp = [mesh.scalars[key] for key in ['x','y','rho','u','v','p','uu','vv','ww','uv','Cp']]
 
     plt.figure(1) 
     Vmag = np.sqrt(u**2+v**2) 
@@ -84,9 +84,9 @@ if print('Reading data...') or True:
     mesh.color(Vmag)
     plt.colorbar()
     plt.title(r'$|V|/V_\infty$')
-    skip=1
-    plt.quiver(x[::skip],y[::skip],(u/Vmag)[::skip],(v/Vmag)[::skip])
-    plt.show() 
+    # skip=1
+    # plt.quiver(x[::skip],y[::skip],(1e3*u/Vmag)[::skip],(1e3*v/Vmag)[::skip])
+    #plt.show() 
 
 
 
@@ -166,7 +166,7 @@ if 'streamlines' in METHOD and (print('Computing streamlines...') or True):
         shat = (initial_point - center_perp)/np.linalg.norm(initial_point - center_perp)
         dP_ds = 1 / radius_perp * Vmag_initial_point**2
 
-        gradP[i] =  dP_dn * nhat + dP_ds * shat - divR[i] 
+        gradP[i] =  (dP_dn * nhat + dP_ds * shat - divR[i])*rho[i]
 
         if plot_tic % 10 == 0:
             plt.plot(*tuple(initial_point), 'bo')
@@ -187,7 +187,16 @@ if 'streamlines' in METHOD and (print('Computing streamlines...') or True):
         center,radius = fit_circle(*tuple(profile[i-CIRCLE_FIT_POINTS//2:i+CIRCLE_FIT_POINTS].T))
         center_list.append(center)
         radius_list.append(radius)
+
+        center_perp_list.append(np.array([np.inf,np.inf]))
+        radius_perp_list.append(np.inf)
+
         initial_point_list.append(profile[i])
+
+    center_list = np.array(center_list)
+    radius_list = np.array(radius_list)
+    center_perp_list = np.array(center_perp_list)
+    radius_perp_list = np.array(radius_perp_list)
 
     #use wall model and streamline interpolation for points very close to wall
     mask = contains_points(compute_offset(profile,OFFSET_AVOID_BAD_DATA),mesh.nodes) 
@@ -205,10 +214,18 @@ if 'streamlines' in METHOD and (print('Computing streamlines...') or True):
             h = np.min(np.linalg.norm(initial_point[None,:]-profile))
             Vmag_initial_point = sp.interpolate.interp1d(y_cv,u_wm)(h)
 
-        center = sp.interpolate.LinearNDInterpolator(initial_point_list,center_list)(initial_point)
-        radius = sp.interpolate.LinearNDInterpolator(initial_point_list,radius_list)(initial_point) 
+
+        #exp_center_list = np.exp(np.array(center_list)
+        center = 1/sp.interpolate.LinearNDInterpolator(initial_point_list,1/center_list)(initial_point)
+        radius = 1/sp.interpolate.LinearNDInterpolator(initial_point_list,1/radius_list)(initial_point) 
         nhat = (initial_point - center)/np.linalg.norm(initial_point - center)
-        gradP[i] =  1 / radius * Vmag_initial_point**2 * nhat
+
+        center_perp = 1/sp.interpolate.LinearNDInterpolator(initial_point_list,1/center_perp_list)(initial_point)
+        radius_perp = 1/sp.interpolate.LinearNDInterpolator(initial_point_list,1/radius_perp_list)(initial_point)
+        shat = (initial_point - center_perp)/np.linalg.norm(initial_point - center_perp)
+                                                                                               
+        gradP[i] =  1 / radius * Vmag_initial_point**2 * nhat + 1 / radius_perp * Vmag_initial_point**2 * shat
+        gradP[i] *= rho[i]
 
 
 
@@ -254,13 +271,21 @@ if True:
 
     plt.figure(2)
 
+    Cp_actual = mesh.boundary_scalars()[0]['Cp'][inds][x_PIV<0.95]
+
     x_taps, Cp_taps = x_taps[x_taps<0.95], Cp_taps[x_taps<0.95]
     x_PIV, Cp_PIV = x_PIV[x_PIV<0.95], Cp_PIV[x_PIV<0.95]
     Cp_PIV = Cp_PIV - Cp_PIV[0] + Cp_taps[0]
 
+    
+
     plt.plot(x_taps,Cp_taps,label='exact')
     plt.plot(x_PIV,Cp_PIV,label='PIV')
+    plt.plot(x_PIV,Cp_actual,label='actual')
     plt.xlabel('x/c'); plt.ylabel('Cp'); plt.title('A-Airfoil'); plt.legend() 
+
+    
+
     
     plt.gca().invert_yaxis()
     plt.show()

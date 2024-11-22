@@ -1,7 +1,7 @@
 import scipy as sp
 import numpy as np
 
-def fit_circle(x, y, threshold=0.99):
+def fit_circle(x, y, threshold=1):
     def calc_R(xc, yc):
         return np.sqrt((x - xc)**2 + (y - yc)**2)
 
